@@ -1,6 +1,8 @@
+const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 /**
  * @type {import('webpack').Configuration & { devServer?: import('webpack-dev-server').Configuration }}
@@ -55,13 +57,28 @@ const config = {
       exposes: {
         './table': './src/components/table/table',
       },
-      shared: {},
+      shared: {
+        react: {},
+        'react-dom': {},
+      },
     }),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/assets/favicon.ico',
     }),
+    sentryWebpackPlugin({
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      org: 'yokota-dev',
+      project: 'javascript-react-second',
+      _experiments: {
+        moduleMetadata: ({ org, project, release }) => {
+          return { team: "remote", release };
+        },
+      }
+    }),
   ],
+  devtool: 'source-map',
 };
 
 module.exports = config;

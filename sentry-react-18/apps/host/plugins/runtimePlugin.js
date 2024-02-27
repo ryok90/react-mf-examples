@@ -1,25 +1,17 @@
+const errorLoadRemote = require('./hooks/errorLoadRemote');
+
+// Plugin added to the current application.
+// Reference to the following page to see each hook.
+// https://github.com/module-federation/universe/tree/main/packages/runtime#hooks
+/** @type {() => import('@module-federation/runtime').FederationRuntimePlugin} */
 function runtimePlugin() {
   return {
-    name: 'custom-plugin-next-js-mf-9999',
-    async errorLoadRemote({ id, error, from, origin }) {
-      const pg = (await import('../src/components/error')).default
+    name: 'custom-plugin-next-js-mf-816',
 
-      let mod;
-      if (from === 'build') {
-        mod = () => ({
-          __esModule: true,
-          default: pg,
-        });
-      } else {
-        mod = {
-          default: pg,
-        };
-      }
-
-      return mod;
-    },
+    // Invoked if loading a federated module fails,
+    // enabling custom error handling.
+    errorLoadRemote,
   };
 }
 
 module.exports = runtimePlugin;
-

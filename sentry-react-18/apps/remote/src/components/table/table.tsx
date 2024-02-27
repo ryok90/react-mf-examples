@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styles from './table.module.css';
 
 export type TableData = {
@@ -12,6 +13,12 @@ export interface TableProps {
 }
 
 export function Table({ data }: TableProps) {
+  useEffect(() => {
+    setTimeout(() => {
+      throw new Error('Error from Table');
+    }, 2000);
+  }, []);
+
   return (
     <>
       <table className={`${styles.table}`}>
