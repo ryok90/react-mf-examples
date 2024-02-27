@@ -44,7 +44,7 @@ export function App() {
             This is a template for a remote application you can get started by
             editing{' '}
             <code className="text-sm font-bold text-gray-900">
-              pages/index.tsx
+              pages/App.tsx
             </code>
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
