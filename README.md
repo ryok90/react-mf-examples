@@ -7,8 +7,8 @@ This repository contains several small samples on different integrations of `Rea
 
 ```
 - template
-  ├ host            (A Next.js host app)
-  ├ remote          (A Next.js remote app)
+  ├ host            (A React host app)
+  ├ remote          (A React remote app)
   ├ package.json    (Package file with scripts to run all apps at once)
   └ README.md       (This readme file to explain how to run the sample)
 ```

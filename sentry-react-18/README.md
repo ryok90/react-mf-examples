@@ -1,20 +1,20 @@
-# Next.js + MF Example
+# React + MF Example
 
-This is an example for the use of the Next.js framework using the Module Federation webpack plugin.
+This is an example for the use of the React using the Module Federation webpack plugin.
 
 ## Sample Structure
 
 ```
 - template
-  ├ host            (A Next.js host app)
-  ├ remote          (A Next.js remote app)
+  ├ host            (A React host app)
+  ├ remote          (A React remote app)
   ├ package.json    (Package file with scripts to run all apps at once)
   └ README.md       (This readme file to explain how to run the sample and deploy it using Zephyr)
 ```
 
 ## Sample Stack
 
-- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
 ## How to run the sample
